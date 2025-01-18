@@ -1,0 +1,22 @@
+{
+  "name": "bloggingplataformapi",
+  "version": "1.0.0",
+  "description": "Api de posteos de blogs",
+  "license": "ISC",
+  "author": "Agustin Lorenzatto",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1",
+    "mongoose": "^8.9.5",
+    "nodemon": "^3.1.9"
+  },
+  "devDependencies": {}
+}
