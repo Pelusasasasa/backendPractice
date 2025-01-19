@@ -14,7 +14,7 @@ const Blog = new Schema({
         default: ''
     },
     tags: {
-        type: [],
+        type: [String],
         default: []
     }
 },
@@ -26,6 +26,8 @@ const Blog = new Schema({
 Blog.method('toJSON', function(){
     const {__v, _id, ...object} = this.toObject();
     object.id = _id;
+    //Los valores dentro dedl arreglo los guardamos en mayusucula y sacamos los espacios de adelante y del final de la cadena
+    object.tags = object.tags.map(elem => elem.toUpperCase().trim());
     return object
 });
 
