@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs');
 const readline = require('readline')
 
@@ -16,7 +18,7 @@ if(!fs.existsSync(json)){
   if (data) {
     let aux = JSON.parse(data);
     tasks.push(...aux)
-  }
+  };
 };
 
 const actualizarTodo = (id, texto) => {
@@ -45,6 +47,8 @@ const agregarTarea = (texto) => {
 
   //Agreagamos la tarea al archivo
   fs.writeFileSync(json, JSON.stringify(tasks, null, 2));
+
+  console.log(`Task added successfully (ID: ${nuevaTarea.id})`);
   
 };
 
@@ -59,14 +63,39 @@ const marcarEnProgreso = (id) => {
   const task = tasks.find(elem => elem.id == id);
 
   if (task) {
-    task.status = 'in-process'
+    task.status = 'in-process';
   };
 
   fs.writeFileSync(json, JSON.stringify(tasks, null, 2));
-}
+};
 
-const mostrarTareas = () => {
-  console.log(tasks);
+const marcarDone = (id) => {
+  const task = tasks.find(elem => elem.id == id);
+
+  if (task) {
+    task.status = 'done';
+  };
+
+  fs.writeFileSync(json, JSON.stringify(tasks, null, 2));
+};
+
+const mostrarTareas = (texto) => {
+  if (texto === 'done'){
+    console.log(tasks.filter(elem => elem.status === 'done'));
+    return;
+  };
+
+  if (texto === 'done'){
+    console.log(tasks.filter(elem => elem.status === 'todo'));
+    return;
+  };
+
+  if (texto === 'todo'){
+    console.log(tasks.filter(elem => elem.status === 'in-progress'));
+    return;
+  };
+
+  console.log(tasks)
 };
 
 const args = process.argv.slice(2);
@@ -84,7 +113,13 @@ switch (commando) {
     borrarTodo(arg1);
     break;
   case 'list':
-    mostrarTareas()
+    mostrarTareas(arg1);
+    break;
+  case 'mark-in-progress':
+    marcarEnProgreso(arg1);
+    break;
+  case 'mark-done':
+    marcarDone(arg1);
     break;
   case 'update':
     actualizarTodo(arg1, arg2);
