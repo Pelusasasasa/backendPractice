@@ -19,6 +19,18 @@ if(!fs.existsSync(json)){
   }
 };
 
+const actualizarTodo = (id, texto) => {
+
+  const task = tasks.find(elem => elem.id == id);
+
+  if(task){
+    task.descripcion = texto;
+  }
+
+  fs.writeFileSync(json, JSON.stringify(tasks, null, 2))
+
+};
+
 const agregarTarea = (texto) => {
   const nuevaTarea = {
     id: tasks.length + 1,
@@ -36,21 +48,47 @@ const agregarTarea = (texto) => {
   
 };
 
+const borrarTodo = (id) => {
+  //Devolvemos un arreglo que no contiene la tarea que sea igual al id que pasamos por parametro
+  let nuevoTasks = tasks.filter(elem => elem.id != id);
+
+  fs.writeFileSync(json, JSON.stringify(nuevoTasks, null, 2));
+};
+
+const marcarEnProgreso = (id) => {
+  const task = tasks.find(elem => elem.id == id);
+
+  if (task) {
+    task.status = 'in-process'
+  };
+
+  fs.writeFileSync(json, JSON.stringify(tasks, null, 2));
+}
+
 const mostrarTareas = () => {
   console.log(tasks);
 };
 
 const args = process.argv.slice(2);
 const commando = args[0];
-const texto = args[1];
+const arg1 = args[1];
+const arg2 = args[2];
+
 
 
 switch (commando) {
   case 'add':
-    agregarTarea(texto);
+    agregarTarea(arg1);
+    break;
+  case 'delete':
+    borrarTodo(arg1);
     break;
   case 'list':
     mostrarTareas()
+    break;
+  case 'update':
+    actualizarTodo(arg1, arg2);
+    break;
   default:
     break;
 }
