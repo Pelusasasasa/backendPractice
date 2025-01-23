@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Convertidor de unidades</title>
+</head>
+<body>
+    <header>
+        <h1>Unit Converter</h1>
+
+        <div>
+            <p id="length" class="activo">Length</p>
+            <p id="weight">Weight</p>
+            <p id="temperature">Temperature</p>
+        </div>
+    </header>
+    <main class="" id="form">
+        <div>
+            <label for="valor">Enter the length to convert</label>
+            <input type="number" name="valor" id="valor">
+        </div>
+        <div>
+            <label for="unitFrom">Unit to Convert From</label>
+            <select name="unitFrom" id="unitFrom">
+                <option class="length" value="ml">Milimetro</option>
+                <option class="length" value="cm">Centimetro</option>
+                <option class="length" value="m">Metro</option>
+                <option class="length" value="km">KiloMetro</option>
+                <option class="length" value="pu">Pulgada</option>
+                <option class="length" value="pi">Pie</option>
+                <option class="length" value="y">Yarda</option>
+                <option class="length" value="mi">Milla</option>
+                <option class="weight none" value="mg">Miligramo</option>
+                <option class="weight none" value="g">Gramo</option>
+                <option class="weight none" value="kg">Kilogramo</option>
+                <option class="weight none" value="o">Onza</option>
+                <option class="weight none" value="l">Libra</option>
+                <option class="temperature none" value="c">Celsius</option>
+                <option class="temperature none" value="f">Fahrenheit</option>
+                <option class="temperature none" value="k">Kelvin</option>
+                
+            </select>
+        </div>
+        <div>
+            <label for="unitTo">Unit to Convert To</label>
+            <select name="unitTo" id="unitTo">
+                <option class="length" value="ml">Milimetro</option>
+                <option class="length" value="cm">Centimetro</option>
+                <option class="length" value="m">Metro</option>
+                <option class="length" value="km">KiloMetro</option>
+                <option class="length" value="pu">Pulgada</option>
+                <option class="length" value="pi">Pie</option>
+                <option class="length" value="y">Yarda</option>
+                <option class="length" value="mi">Milla</option>
+                <option class="weight none" value="mg">Miligramo</option>
+                <option class="weight none" value="g">Gramo</option>
+                <option class="weight none" value="kg">Kilogramo</option>
+                <option class="weight none" value="o">Onza</option>
+                <option class="weight none" value="l">Libra</option>
+                <option class="temperature none" value="c">Celsius</option>
+                <option class="temperature none" value="f">Fahrenheit</option>
+                <option class="temperature none" value="k">Kelvin</option>
+            </select>
+        </div>
+
+            <button id="convert">Convert</button>
+    </main>
+    <main id="result">
+        <h3>Result of your calculation</h3>
+
+        <p id="response"></p>
+
+        <button id="reset">Reset</button>
+    </main>
+
+</body>
+
+    <script src="./index.js"></script>
+</html>
