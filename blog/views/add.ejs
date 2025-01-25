@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Article</title>
+    <link rel="stylesheet" href="../editNew.css">
+</head>
+<body>
+    <h1>New Article</h1>
+        <form action="/add-article" method="POST">
+            <div>
+                <label for="articleTitle">Article Title</label>
+                <input type="text" name="articleTitle" id="articleTitle">
+            </div>
+            <div>
+                <label for="articleDate">Publishing Date</label>
+                <input type="date" name="articleDate" id="articleDate">
+            </div>
+            <div>
+                <label for="articleContent">Article Content</label>
+                <textarea name="articleContent" id="articleContent" cols="30" rows="20">
+                        
+                    </textarea>
+            </div>
+        
+            <button type="submit">Publish</button>
+        </form>
+</body>
+</html>

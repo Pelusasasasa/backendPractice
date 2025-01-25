@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>Personal Blog</h1>
+        <a href="/add">+ADD</a>
+    </header>
+
+    <ul>
+        <% articles.forEach(article => { %>
+            <li>
+                <div>
+                    <a href="/article/<%=article.id %>">
+                        <%= article.title %>
+                    </a>
+                    <div>
+                        <a href="/edit/<%=article.id %>">Edit</a>
+                        <form action="/delete-article/<%=article.id %>" method="POST"">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </li>
+            <% }) %>
+    </ul>
+</body>
+</html>

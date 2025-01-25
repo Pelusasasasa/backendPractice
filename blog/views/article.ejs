@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articulo</title>
+    <link rel="stylesheet" href="../article.css">
 </head>
 <body>
     <h1><%= article.title %></h1>
     <h3><%= article.fecha %></h3>
-    <p><%= article.text %></p>
+    <div>
+        <p>
+            <%= article.text %>
+        </p>
+    </div>
 </body>
 </html>
