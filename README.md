@@ -11,3 +11,7 @@ URL del proyecto en el cual me base https://roadmap.sh/projects/task-tracker
 #3 unit-convert. Poryecto de aplicacion web
 LO que hacemos es uni poryecto de convertir unidades seleccionadas ya sea por peso, longitud o temperatura, lo unico que hay que hacer es instalar las dependecias e iniciar el servidor con npm run dev y luego cargar la pagina index.html en un pagina web y ya podemos probrar el proyecto
 URL del proyecto en el cual me base https://roadmap.sh/projects/unit-converter
+
+#Blog. Aplicacion web
+En esta practica hicimos un backend con node js para renderisasr paginas web de un blog en donde la pagina principal muestra los blogs y la fecha a los cuales se puede acceder y ver el texto y en la parte de admin se puede agrear, modificar o quitar blogs el cual se guarda en archivos json, antes de ingresar a la parte de admin hay que loguearse sensillamente con admin admin
+URL del proyecto en el cual me base https://roadmap.sh/projects/personal-blog
