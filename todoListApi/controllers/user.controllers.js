@@ -24,8 +24,8 @@ userCTRL.createUser = async(req, res) => {
 
 
     //Encriptrar Contraseña
-    const salt = bcrypt.genSaltSync();
-    newUser.password = bcrypt.hashSync(password, salt);
+    const salt = bcrypt.genSaltSync(10);
+    newUser.password =  bcrypt.hashSync(password, salt);
 
     await newUser.save();
 
@@ -40,7 +40,6 @@ userCTRL.createUser = async(req, res) => {
 
 userCTRL.login = async(req, res) => {
     const {email, password} = req.body;
-    console.log(req.body)
 
     try {
         const user = await User.findOne({ email });
@@ -51,11 +50,8 @@ userCTRL.login = async(req, res) => {
                 message: 'El usuario no existe con ese mail'
             });
         };
-        
-        //comprobar cotraseña
-        console.log(user.password)
-        console.log(password)
-        const validatorPassword = bcrypt.compareSync(password, user.password);
+
+        const validatorPassword = await bcrypt.compare(password, user.password);
 
         if(!validatorPassword){
             res.status(400).json({

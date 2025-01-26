@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, Mongoose } = require("mongoose");
 
 const Todo = new Schema({
 
@@ -12,6 +12,13 @@ const Todo = new Schema({
         required: true,
         set: (value) => value.trim().toUpperCase()
     },
+    user: {
+        type: Mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    }
+}, {
+    timestamps: true
 });
 
 Todo.method('toJSON', function(){
