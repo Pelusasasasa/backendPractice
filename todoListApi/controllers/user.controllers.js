@@ -3,6 +3,7 @@ const  userCTRL = {};
 const bcrypt = require('bcryptjs');
 const User = require("../model/User");
 const { generarJTW } = require('../helpers/jtw');
+const argon2 = require('argon2');
 
 userCTRL.createUser = async(req, res) => {
     const {name, email, password} = req.body;
@@ -16,16 +17,15 @@ userCTRL.createUser = async(req, res) => {
         })
     };
 
+    //Encriptrar Contraseña
+    const hash = await argon2.hash(password)
+
+
     const newUser = new User({
         name,
         email,
-        password
+        password: hash
     });
-
-
-    //Encriptrar Contraseña
-    const salt = bcrypt.genSaltSync(10);
-    newUser.password =  bcrypt.hashSync(password, salt);
 
     await newUser.save();
 
@@ -50,11 +50,10 @@ userCTRL.login = async(req, res) => {
                 message: 'El usuario no existe con ese mail'
             });
         };
-
-        const validatorPassword = await bcrypt.compare(password, user.password);
+        const validatorPassword = await argon2.verify(password, user.password);
 
         if(!validatorPassword){
-            res.status(400).json({
+            return res.status(400).json({
                 ok: false,
                 message: 'Contraseña incorrecta'
             });
