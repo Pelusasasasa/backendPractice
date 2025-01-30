@@ -12,6 +12,7 @@ app.use(express.json());
 
 //middlewares
 app.use('/api/users', require('./routes/user.route'));
+app.use('/api/todos', require('./routes/todo.router'));
 
 //Iniciamos el servidor
 app.listen(PORT, () => {

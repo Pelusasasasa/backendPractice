@@ -13,7 +13,7 @@ const Todo = new Schema({
         set: (value) => value.trim().toUpperCase()
     },
     user: {
-        type: Mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.String,
         ref: 'User',
         required: true
     }
