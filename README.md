@@ -15,3 +15,7 @@ URL del proyecto en el cual me base https://roadmap.sh/projects/unit-converter
 #Blog. Aplicacion web
 En esta practica hicimos un backend con node js para renderisasr paginas web de un blog en donde la pagina principal muestra los blogs y la fecha a los cuales se puede acceder y ver el texto y en la parte de admin se puede agrear, modificar o quitar blogs el cual se guarda en archivos json, antes de ingresar a la parte de admin hay que loguearse sensillamente con admin admin
 URL del proyecto en el cual me base https://roadmap.sh/projects/personal-blog
+
+#todoListApi
+Esta parctca lo que hacemos es un rest Api para crear todos que contengan un usuario que lo pasamos en los hederes para saber si puede o no modificar o eliminar una tarea, este usuario se guarda cuando creamos un todo con el email ya que ese email es unico, lo unico que no puedo lograr es cuando sifro la contraseña despues hacer el login porque me da error en la libreria de argon que estoy usando
+URL del proyecto en el cual me base https://roadmap.sh/projects/todo-list-api
