@@ -13,7 +13,8 @@ app.use(cors())
 
 //middlewares
 app.use('/api/users', require('./routes/user.route'));
-
+app.use('/api/gastos', require('./routes/gasto.route'));
+app.use('/api/categories', require('./routes/category.route'));
 
 app.listen(PORT, () => {
     console.log('Servidor Corriente en el puerto ' + PORT);
