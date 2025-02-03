@@ -54,7 +54,7 @@ gastoCTRL.getAll = async(req, res) => {
 };
 
 gastoCTRL.putOne = async(req, res) => {
-    
+    res.send(req.user)
 }
 
 module.exports = gastoCTRL;

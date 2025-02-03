@@ -12,6 +12,21 @@ const validarJWT = (req, res, next) => {
 
 
     try {
+        const {uid, name, password} = jwt.verify(
+            token,
+            process.env.JTW
+        );
+        req.uid = uid;
+        req.password = password;
+    } catch (error) {
+        return res.status(401).json({
+            ok: false,
+            msg: 'Token no valido'
+        })
+    }
+
+
+    try {
         
     } catch (error) {
         return res.status(401).json({
@@ -19,4 +34,6 @@ const validarJWT = (req, res, next) => {
             msg: 'Token no valido'
         })
     }
-}
+};
+
+module.exports = validarJWT;
