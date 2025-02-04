@@ -16,7 +16,6 @@ const validarJWT = (req, res, next) => {
             token,
             process.env.JTW
         );
-        console.log("a")
         req.uid = uid;
         req.password = password;
     } catch (error) {

@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { postGasto, getAll, putOne } = require('../controllers/gasto.controllers');
+const { postGasto, getAll, putOne, deleteOne } = require('../controllers/gasto.controllers');
 const validarJWT = require('../middlewares/validar-jtw');
 
 
@@ -13,6 +13,7 @@ router.route('/')
     .post(postGasto)
 router.route('/:id')
     .put(putOne)
+    .delete(deleteOne)
 
 
 module.exports = router
