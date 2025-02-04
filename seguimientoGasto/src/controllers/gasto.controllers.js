@@ -54,7 +54,17 @@ gastoCTRL.getAll = async(req, res) => {
 };
 
 gastoCTRL.putOne = async(req, res) => {
-    res.send(req.user)
-}
+    const { id } = req.params;
+    const gasto = await Gasto.findOne({_id: id});
+    
+    console.log(gasto.user)
+    console.log(req.uid)
+    if(gasto.user !== req.uid){
+        return res.status(401).json({
+            ok: false,
+            msg: 'El usuario no tiene privilegios'
+        })
+    }
+};
 
 module.exports = gastoCTRL;

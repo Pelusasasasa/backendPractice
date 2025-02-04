@@ -16,6 +16,7 @@ const validarJWT = (req, res, next) => {
             token,
             process.env.JTW
         );
+        console.log("a")
         req.uid = uid;
         req.password = password;
     } catch (error) {
@@ -23,17 +24,10 @@ const validarJWT = (req, res, next) => {
             ok: false,
             msg: 'Token no valido'
         })
-    }
+    };
 
+    next();
 
-    try {
-        
-    } catch (error) {
-        return res.status(401).json({
-            ok: false,
-            msg: 'Token no valido'
-        })
-    }
 };
 
 module.exports = validarJWT;
