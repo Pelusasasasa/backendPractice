@@ -20,6 +20,7 @@ console.log("3. Hard (3 chances)");
 let dificultad = 0;
 let numero = 0;
 let vidas = 0;
+let bandera = false;
 
 rl.question('Enter your choice: ', res => {
     if(res === "1" || res === "2" || res === "3"){
@@ -53,15 +54,21 @@ let jugar = async() => {
       const numero = await llamarEntrada();
         
         if (numero === 1) {
-            console.log("Congratulations! You guessed the correct number in 4 attempts.")
+            console.log("Congratulations! You guessed the correct number in 4 attempts.");
+            bandera = true;
+            vidas = 0;
             rl.close();
         }else{
             console.log(`Incorrect! The number is less than ${numero}.`);
             vidas--;
         }
     };
-    console.log(`You have ${vidas} lives left`);
-    rl.close();
+    
+    //Si La bandera esta en false es porque nos quecamos sin vidas sino es poruqe ya ganamos
+    if (!bandera) {
+        console.log(`You have ${vidas} lives left`);
+        rl.close();
+    }
 }
 
 
