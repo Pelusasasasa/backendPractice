@@ -19,3 +19,7 @@ URL del proyecto en el cual me base https://roadmap.sh/projects/personal-blog
 #todoListApi
 Esta parctca lo que hacemos es un rest Api para crear todos que contengan un usuario que lo pasamos en los hederes para saber si puede o no modificar o eliminar una tarea, este usuario se guarda cuando creamos un todo con el email ya que ese email es unico, lo unico que no puedo lograr es cuando sifro la contraseña despues hacer el login porque me da error en la libreria de argon que estoy usando
 URL del proyecto en el cual me base https://roadmap.sh/projects/todo-list-api
+
+#seguimientoGasto
+En esta practica creamos una api para monitorear los gastos que tenemos, ya sea creandolos, actualizandolos, borrandolos o consultandolos, donde solo lo podemos a hacer si somos los mismos usuarios que creamos el gastos
+URL del proyecto en el cual me base https://roadmap.sh/projects/expense-tracker-api

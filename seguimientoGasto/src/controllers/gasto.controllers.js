@@ -17,7 +17,7 @@ gastoCTRL.postGasto = async(req, res) => {
         const gastoGuardado = new Gasto(req.body);
         const { user } = req.headers;
 
-        gastoGuardado.user = user;
+        gastoGuardado.user = req.uid;
 
         await gastoGuardado.save();
 
@@ -50,6 +50,141 @@ gastoCTRL.getAll = async(req, res) => {
         })
     } catch (error) {
         retornoError(error, res);
+    }
+
+};
+
+gastoCTRL.lastWeek = async(req, res) => {
+
+    const hoy = new Date();
+
+    const inicioSemana =  new Date(
+        hoy.getFullYear(),
+        hoy.getMonth(),
+        hoy.getDate() - hoy.getDay() - 7,
+        0,
+        0,
+        0
+    );
+
+    const finSemana = new Date(
+        hoy.getFullYear(),
+        hoy.getMonth(),
+        hoy.getDate() - hoy.getDay(),
+        23,
+        59,
+        59
+    );
+
+    try {
+        const gastos = await Gasto.find({
+                createdAt: { 
+                    $gte: inicioSemana,
+                    $lt: finSemana  
+                },
+        });
+
+        res.status(200).json({
+            ok: true,
+            gastos
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        })
+    }
+
+};
+
+gastoCTRL.lastMonth = async(req, res) => {
+
+    const hoy = new Date();
+
+    const lastMonth = new Date(hoy.getFullYear(), hoy.getMonth() - 1, 1)
+    const lastMonthFin = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate() - hoy.getDate())
+    
+    console.log(lastMonth)
+    console.log(lastMonthFin)
+    try {
+        const gastos = await Gasto.find({
+            createdAt: {
+                $gte: lastMonth,
+                $lt: lastMonthFin
+            }
+        });
+
+        res.status(200).json({
+            ok: true,
+            gastos
+        });
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        })
+    }
+};
+
+gastoCTRL.last3Month = async(req, res) => {
+
+    const hoy = new Date();
+
+    const lastMonth = new Date(hoy.getFullYear(), hoy.getMonth() - 3, 1)
+    const lastMonthFin = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate() - hoy.getDate())
+
+    console.log(lastMonth)
+    console.log(lastMonthFin)
+    try {
+        const gastos = await Gasto.find({
+            createdAt: {
+                $gte: lastMonth,
+                $lt: lastMonthFin
+            }
+        });
+
+        res.status(200).json({
+            ok: true,
+            gastos
+        });
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        })
+    }
+};
+
+//Espesificamos el rango en el cual traemos los gastos
+gastoCTRL.customDate = async(req, res) => {
+
+    const {desde, hasta} = req.params;
+
+    try {
+
+        const gastos = await Gasto.find({
+            createdAt: {
+                $gte: new Date(desde + "T00:00:00.000Z"),
+                $lt: new Date(hasta + "T23:59:59.000Z")
+            }
+        });
+
+        res.status(200).send({
+            ok: true,
+            gastos
+        })
+        
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        })
     }
 
 };
@@ -117,6 +252,7 @@ gastoCTRL.deleteOne = async(req, res) => {
 
 
 };
+
 
 
 module.exports = gastoCTRL;
