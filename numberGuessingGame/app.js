@@ -18,7 +18,8 @@ console.log("2. Medium (5 chances)")
 console.log("3. Hard (3 chances)");
 
 let dificultad = 0;
-let numero = 0;
+let numero = Math.floor(Math.random() * 100) + 1;
+console.log(numero)
 let vidas = 0;
 let bandera = false;
 
@@ -51,15 +52,15 @@ rl.question('Enter your choice: ', res => {
 let jugar = async() => {
   
     while (vidas > 0){
-      const numero = await llamarEntrada();
+      const numeroAux = await llamarEntrada();
         
-        if (numero === 1) {
+        if (numeroAux === numero) {
             console.log("Congratulations! You guessed the correct number in 4 attempts.");
             bandera = true;
             vidas = 0;
             rl.close();
         }else{
-            console.log(`Incorrect! The number is less than ${numero}.`);
+            console.log(`Incorrect! The number is less than ${numeroAux}.`);
             vidas--;
         }
     };
