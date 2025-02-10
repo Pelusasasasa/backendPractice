@@ -23,3 +23,7 @@ URL del proyecto en el cual me base https://roadmap.sh/projects/todo-list-api
 #seguimientoGasto
 En esta practica creamos una api para monitorear los gastos que tenemos, ya sea creandolos, actualizandolos, borrandolos o consultandolos, donde solo lo podemos a hacer si somos los mismos usuarios que creamos el gastos
 URL del proyecto en el cual me base https://roadmap.sh/projects/expense-tracker-api
+
+#Number Guessing Game
+Juego de advinar el numero aleatorio que elige la computadora y tener tantas vidas segun diga la dificultad
+URL del proyecto en el cual me base https://roadmap.sh/projects/number-guessing-game

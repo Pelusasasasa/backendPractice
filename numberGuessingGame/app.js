@@ -59,8 +59,11 @@ let jugar = async() => {
             bandera = true;
             vidas = 0;
             rl.close();
-        }else{
+        }else if(numeroAux > numero){
             console.log(`Incorrect! The number is less than ${numeroAux}.`);
+            vidas--;
+        }else{
+            console.log(`Incorrect! The number is greater than ${numeroAux}.`);
             vidas--;
         }
     };
