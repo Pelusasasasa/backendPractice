@@ -5,6 +5,7 @@ Instalar con npm i y fijarse la variable de entorno de el puerto si la quieres c
 URL del proyecto en el cual me base https://roadmap.sh/projects/blogging-platform-api
 
 #Github User Activity: Practica para mostrar la actividad de un usuario de github haciendo un fetch a la api de github y mostrar las actividades del susuario
+URL del proyecto en el cual me base https://roadmap.sh/projects/github-user-activity
 
 #Task-cli: Pryecto de javascript
 Hacer un cli que se ejecute por la terminal de compandos de un archivo js que lo que hace es en un archivo json hacer el crud de tareas, no unio que no pude hacer es que en la linea de comandos se ejucte como task-cli sino que tenemos que ir hasta la ubicacion del archivo y ejecutar con node
