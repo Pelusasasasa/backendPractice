@@ -34,3 +34,7 @@ URL del proyecto en el cual me base https://roadmap.sh/projects/expense-tracker-
 #Number Guessing Game
 Juego de advinar el numero aleatorio que elige la computadora y tener tantas vidas segun diga la dificultad
 URL del proyecto en el cual me base https://roadmap.sh/projects/number-guessing-game
+
+#TMDB-CLI-TOOL
+Practica para consumir la api de peliculas y traer las peliculas segu su tipo
+URL del proyecto en el cual me base https://roadmap.sh/projects/tmdb-cli
