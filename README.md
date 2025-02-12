@@ -7,6 +7,10 @@ URL del proyecto en el cual me base https://roadmap.sh/projects/blogging-platfor
 #Github User Activity: Practica para mostrar la actividad de un usuario de github haciendo un fetch a la api de github y mostrar las actividades del susuario
 URL del proyecto en el cual me base https://roadmap.sh/projects/github-user-activity
 
+#Expense tracker
+Aplicacion de practica de segumiento de gasto para gestionar las finanzas unsado un arhcivo de texto plano como json
+URL del proyecto en el cual me base https://roadmap.sh/projects/expense-tracker
+
 #Task-cli: Pryecto de javascript
 Hacer un cli que se ejecute por la terminal de compandos de un archivo js que lo que hace es en un archivo json hacer el crud de tareas, no unio que no pude hacer es que en la linea de comandos se ejucte como task-cli sino que tenemos que ir hasta la ubicacion del archivo y ejecutar con node
 URL del proyecto en el cual me base https://roadmap.sh/projects/task-tracker
